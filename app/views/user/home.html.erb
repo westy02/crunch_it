@@ -1,0 +1,6 @@
+<% if signed_in? %>
+      <h1>Welcome to the user home page</h1>
+<% else %>
+  <%= render new_user_session_path %>
+
+<% end %>
