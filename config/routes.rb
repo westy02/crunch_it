@@ -1,7 +1,9 @@
 CrunchIt::Application.routes.draw do
+  
+
   devise_for :users
   
-  resources :users
+  resources :users, :jobs
   
   get "user/home"
   
