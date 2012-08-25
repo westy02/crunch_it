@@ -3,6 +3,7 @@ class CreateJobs < ActiveRecord::Migration
     create_table :jobs do |t|
       t.string :name
       t.text :details
+      t.integer :user_id
 
       t.timestamps
     end

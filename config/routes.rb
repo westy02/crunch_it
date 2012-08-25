@@ -3,11 +3,20 @@ CrunchIt::Application.routes.draw do
 
   devise_for :users
   
-  resources :users, :jobs
+  resources :jobs
+    
+  
   
   get "user/home"
+  get "pages/home"
+  get "pages/contact"
+  get "pages/help"
   
-  match '/user_home',  :to => 'user#home'
+  match '/user_home',  :to => 'users#home'
+  match '/contact', :to => 'pages#contact'
+  match '/help',    :to => 'pages#help'
+  match '/admin', :to => 'pages#admin'
+  match '/settings',  :to => 'pages#settings'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

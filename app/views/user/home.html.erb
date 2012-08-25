@@ -1,5 +1,10 @@
 <% if signed_in? %>
-      <h1>Welcome to the user home page</h1>
+      <h3> <big>My Diary</big> <ul><%= Date.today.strftime("%A %d %B %Y") %> </ul> 
+      	</h3>
+      	<%= link_to "New Job", new_job_path, :class => 'btn btn-primary' %>
+      	<%= link_to "All Jobs", jobs_path, :class => 'btn btn-primary' %>
+      	<%= render 'jobs/jobs' %>
+    
 <% else %>
   <%= render new_user_session_path %>
 

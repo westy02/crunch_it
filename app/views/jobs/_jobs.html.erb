@@ -1,0 +1,14 @@
+
+  <table>
+  <tr>
+    <th>Job name</th>
+    
+  </tr>
+     <% @jobs.each do |job| %>  
+   <tr> 
+  <td> <%= link_to job.name, job %></td> 
+  
+  <% end %>
+  </table>
+ 
+<%= link_to 'New Job', new_job_path %>
