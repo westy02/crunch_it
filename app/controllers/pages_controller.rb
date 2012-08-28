@@ -1,11 +1,16 @@
 class PagesController < ApplicationController
-  skip_before_filter :authenticate_user!  
+  skip_before_filter :authenticate_user!, :except => :home
    
-  def home
+  def index
     if user_signed_in?
-      redirect_to user_home_path
-    end
+      redirect_to pages_home_path
+        end
+  end
+
+  def home  
     @title = 'Home'
+    @jobs = current_user.jobs.all
+    @events = current_user.events.all
   end
 
   def contact

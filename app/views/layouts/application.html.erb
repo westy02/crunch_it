@@ -32,7 +32,7 @@
           <div class="container nav-collapse">
             <ul class="nav">
             	 <% if user_signed_in? %>
-              <li><%= link_to "Home", user_home_path  %></li>
+              <li><%= link_to "Home", pages_home_path  %></li>
               <% else %>
               <li><%= link_to "Home", root_path  %></li>
               <li><%= link_to "Contact", contact_path  %></li>
