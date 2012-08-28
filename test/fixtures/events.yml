@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  start_at: 2012-08-28 13:03:00
+  end_at: 2012-08-28 13:03:00
+  user_id: 1
+  job_id: 1
+
+two:
+  name: MyString
+  start_at: 2012-08-28 13:03:00
+  end_at: 2012-08-28 13:03:00
+  user_id: 1
+  job_id: 1

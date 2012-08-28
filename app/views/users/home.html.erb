@@ -3,4 +3,14 @@
 <% else %>
   <%= render new_user_session_path %>
 
-<% end %>
+
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_job_path,
+            :class => 'btn btn-primary' %>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_event_path,
+            :class => 'btn btn-primary' %>  
+            
+<% end %>                      
