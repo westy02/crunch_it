@@ -1,5 +1,5 @@
 CrunchIt::Application.routes.draw do
-  
+ 
 
   resources :events
 
@@ -8,7 +8,7 @@ CrunchIt::Application.routes.draw do
   resources :jobs
     
   
-  
+  get "calendar/index"
   get "pages/index"
   get "pages/home"
   get "pages/contact"
@@ -20,7 +20,13 @@ CrunchIt::Application.routes.draw do
   match '/help',    :to => 'pages#help'
   match '/admin', :to => 'pages#admin'
   match '/settings',  :to => 'pages#settings'
-
+  match '/calendar',  :to => 'calendar#index'
+  match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
+  match '/calendar(/:year(/:month(/:day)))' => 'calendar#day'
+  match '/calendar(/:year(/:month))' => 'pages#home', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
+  match '/calendar(/:year(/:month(/:day)))' => 'pages#day'
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
