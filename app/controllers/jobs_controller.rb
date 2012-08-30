@@ -25,7 +25,8 @@ class JobsController < ApplicationController
   # GET /jobs/new.json
   def new
     @job = Job.new
-    #@job  = current_user.jobs.create
+    #@job.events << @event
+    @event = current_user.events.build
 
     respond_to do |format|
       format.html # new.html.erb
