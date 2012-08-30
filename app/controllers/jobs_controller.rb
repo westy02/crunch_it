@@ -25,7 +25,6 @@ class JobsController < ApplicationController
   # GET /jobs/new.json
   def new
     @job = Job.new
-    #@job  = current_user.jobs.create
 
     respond_to do |format|
       format.html # new.html.erb
@@ -43,7 +42,7 @@ class JobsController < ApplicationController
   def create
     #@job = Job.new(params[:job])
     @job = current_user.jobs.build(params[:job])
-
+    #@event = current_user.events.build(params[:event])
 
     respond_to do |format|
       if @job.save

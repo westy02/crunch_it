@@ -5,7 +5,13 @@ CrunchIt::Application.routes.draw do
 
   devise_for :users
   
+<<<<<<< HEAD
   resources :jobs 
+=======
+  resources :jobs do
+    resources :events
+  end
+>>>>>>> events
     
   
   get "calendar/index"
