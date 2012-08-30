@@ -1,10 +1,11 @@
 <% if signed_in? %>
       <h3> <big>My Diary</big> <ul><%= Date.today.strftime("%A %d %B %Y") %> </ul> 
       	</h3>
-     	 <ul class="nav nav-pills">
+     	 <ul class="nav nav-tabs">
   <li class="active"><a href="#day" data-toggle="tab">Day</a></li>
   <li><a href="#month" data-toggle="tab">Month</a></li>
-  <li><a href="#list" data-toggle="tab">List</a></li>
+  <li><a href="#events" data-toggle="tab">Events</a></li>
+  <li><a href="#jobs" data-toggle="tab">Jobs</a></li>
 </ul>
 
 <div class="tab-content">
@@ -16,9 +17,13 @@
   	<%= render :partial => 'month' %>
   	</div>
   
-  <div class="tab-pane" id="list">
-  	<%= render :partial => 'list' %>
+  <div class="tab-pane" id="events">
+  	<%= render :partial => 'events' %>
   	</div>
+  	
+  <div class="tab-pane" id="jobs">
+  <%= render :partial => 'jobs' %>
+  </div>
 
 </div>
 
