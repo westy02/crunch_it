@@ -33,6 +33,10 @@
   </tbody>
 </table>
 
+<%= link_to t('.home', :default => t("helpers.links.home")),
+            home_path,
+            :class => 'btn btn-success' %>
+
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_job_path,
             :class => 'btn btn-primary' %>
