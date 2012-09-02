@@ -17,8 +17,8 @@ class PagesController < ApplicationController
     @year = (params[:year] || (Time.zone || Time).now.year).to_i
     @shown_month = Date.civil(@year, @month)
     @event_strips = current_user.events.event_strips_for_month(@shown_month)
-    #@daily_events = daily_events
-    @daily_events = @events.group_by(&:start_at)
+    @daily_events = daily_events
+    #@daily_events = @events.group_by(&:start_at)
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
   
