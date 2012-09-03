@@ -2,34 +2,33 @@
       <h3> <big>My Diary</big> <ul><%= Date.today.strftime("%A %d %B %Y") %> </ul> 
       	</h3>
      	 <ul class="nav nav-tabs">
-  <li class="active"><a href="#day" data-toggle="tab">Day</a></li>
-  <li><a href="#month" data-toggle="tab">Month</a></li>
+  <li class="active"><a href="#diary" data-toggle="tab">Diary</a></li>
   <li><a href="#events" data-toggle="tab">Events</a></li>
   <li><a href="#jobs" data-toggle="tab">Jobs</a></li>
 </ul>
 
 <div class="tab-content">
-  <div class="tab-pane active" id="day">
+  <div class="tab-pane active" id="diary">
   	<%= render :partial => 'day' %>
-  	</div>
-  
-  <div class="tab-pane" id="month">
-  	<%= render :partial => 'month' %>
+  	</br>
+  	
+  	<%= link_to "Go to calendar", calendar_path, :class => 'btn btn-warning' %>
+  	<%= link_to "New Job", new_job_path, :class => 'btn btn-success' %>
+    <%= link_to "New Event", new_event_path, :class => 'btn btn-info' %>
   	</div>
   
   <div class="tab-pane" id="events">
-  	<%= render :partial => 'events' %>
+  	<%= render :template => 'events/index' %>
   	</div>
   	
   <div class="tab-pane" id="jobs">
-  <%= render :partial => 'jobs' %>
+  <%= render :template => 'jobs/index' %>
   </div>
 
 </div>
 
 
-      	<%= link_to "New Job", new_job_path, :class => 'btn btn-success' %>
-      	<%= link_to "New Event", new_event_path, :class => 'btn btn-info' %>
+      	
       	
     
 <% else %>
