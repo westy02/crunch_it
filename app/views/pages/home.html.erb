@@ -3,6 +3,7 @@
       	</h3>
      	 <ul class="nav nav-tabs">
   <li class="active"><a href="#diary" data-toggle="tab">Diary</a></li>
+  <li><a href="#calendar" data-toggle="tab">Calendar</a></li>
   <li><a href="#events" data-toggle="tab">Events</a></li>
   <li><a href="#jobs" data-toggle="tab">Jobs</a></li>
 </ul>
@@ -12,11 +13,14 @@
   	<%= render :partial => 'day' %>
   	</br>
   	
-  	<%= link_to "Go to calendar", calendar_path, :class => 'btn btn-warning' %>
   	<%= link_to "New Job", new_job_path, :class => 'btn btn-success' %>
     <%= link_to "New Event", new_event_path, :class => 'btn btn-info' %>
   	</div>
   
+  <div class="tab-pane" id="calendar">
+  	<%= render :partial => 'calendar' %>
+  	</div>
+  	
   <div class="tab-pane" id="events">
   	<%= render :template => 'events/index' %>
   	</div>

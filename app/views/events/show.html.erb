@@ -7,9 +7,9 @@
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @event.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:start_at) %>:</strong></dt>
-  <dd><%= @event.start_at %></dd>
+  <dd><%= @event.start_at %> <%= @event.start_time.to_s(:time) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:end_at) %>:</strong></dt>
-  <dd><%= @event.end_at %></dd>
+  <dd><%= @event.end_at %> <%= @event.end_time.to_s(:time) %></dd>
 </dl>
 
 <div class="form-actions">

@@ -7,15 +7,15 @@
     <tr>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:start_at) %></th>
-      <th><%= model_class.human_attribute_name(:job_id) %></th>
+      <th>Belongs to <%= model_class.human_attribute_name(:job_id) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= link_to event.name, event_path(event) %></td>
-        <td><%= link_to event.start_at.to_s(:long), event_path(event) %></td>
+        <td><%= link_to event.name, user_events_path(event) %></td>
+        <td><%= link_to event.start_at, user_events_path(event) %></td>
         <td><%= event.job_id %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

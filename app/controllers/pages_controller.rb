@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   skip_before_filter :authenticate_user!, :except => :home
+  include EventsHelper
    
   def index
     if user_signed_in?
@@ -9,13 +10,13 @@ class PagesController < ApplicationController
 
   def home  
     @jobs = current_user.jobs.all
-    @events = current_user.events.all
-    @daily_events = current_user.events.where(:start_at => (Time.now.midnight)..Time.now.midnight + 1.day).order("start_at ASC")
+    @events = current_user.events.order("start_at")
+    @daily_events = current_user.events.order("start_at").where("start_at = ?", params[:date])
+    @events_by_date = @events.group_by(&:start_at)
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
+    end
   end
-  
-  end
-
+    
   def contact
     @title = "Contact"
   end

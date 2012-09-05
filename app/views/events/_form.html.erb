@@ -8,13 +8,15 @@
   <div class="control-group">
     <%= f.label :start_at, :class => 'control-label' %>
     <div class="controls">
-      <%= f.datetime_select :start_at %>
+      <%= f.text_field :start_at %>
+      <%= f.time_select :start_time %>
    </div>
   </div>
   <div class="control-group">
     <%= f.label :end_at, :class => 'control-label' %>
     <div class="controls">
-      <%= f.datetime_select :end_at %>
+      <%= f.text_field :end_at %>
+      <%= f.time_select :end_time %>
     </div>
   </div>
   <div class="control-group">
