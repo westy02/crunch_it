@@ -12,13 +12,21 @@
   <div class="tab-pane active" id="diary">
   	<%= render :partial => 'day' %>
   	</br>
-  	
-  	<%= link_to "New Job", new_job_path, :class => 'btn btn-success' %>
-    <%= link_to "New Event", new_event_path, :class => 'btn btn-info' %>
+    <%= link_to "New Event", new_event_path, :class => 'btn btn-info' %>     	
+   	<%= link_to "New Job", new_job_path, :class => 'btn btn-success' %>
+      	
   	</div>
   
   <div class="tab-pane" id="calendar">
   	<%= render :partial => 'calendar' %>
+  	
+  	</br>
+  	<%= link_to t('.home', :default => t("helpers.links.home")),
+            home_path,
+            :class => 'btn btn-inverse' %>
+    <%= link_to "New Event", new_event_path, :class => 'btn btn-info' %>     	
+   	<%= link_to "New Job", new_job_path, :class => 'btn btn-success' %>
+      	
   	</div>
   	
   <div class="tab-pane" id="events">
@@ -32,8 +40,6 @@
 </div>
 
 
-      	
-      	
     
 <% else %>
   <%= render root_path %>
