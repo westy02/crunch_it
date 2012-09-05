@@ -1,0 +1,24 @@
+<% provide(:title, @user.full_name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        
+        <%= @user.full_name %>
+      </h1>
+      </br>
+    </section>
+  </aside>
+   <div class="span8">
+    <%= render 'follow_form' if signed_in? %>
+    <% if @user.jobs.any? %>
+      <h3> <%= pluralize(@user.jobs.count, "active jobs") %> </h3>
+      <ol class="jobs">
+        <%= render @jobs %>
+      </ol>
+      <%= will_paginate @jobs %>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to 'Back', users_path %>

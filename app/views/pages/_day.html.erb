@@ -1,10 +1,10 @@
 <%- model_class = Event.new.class -%>
 <div class="page-header">
-	<h2 id="month">	
+	<h3 id="month">	
     <%= link_to "<", date: @date.yesterday %>
     <%= @date.strftime("%A %d %B %Y") %>
     <%= link_to ">", date: @date.tomorrow %>
-  </h2>
+  </h3>
   </br>
   <div class 'btn btn-success' > <%= link_to "Back to today", date: Date.today %> </div>
 </div>

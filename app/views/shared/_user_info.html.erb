@@ -1,0 +1,9 @@
+<a href="<%= user_path(current_user) %>">
+ 
+</a>
+
+<span>
+  <%= pluralize(current_user.jobs.count, "active job") %>
+  <%= pluralize(current_user.events.count, "active event") %>
+</span>
+

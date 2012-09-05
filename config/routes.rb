@@ -1,16 +1,23 @@
 CrunchIt::Application.routes.draw do
  
-  devise_for :users
+  devise_for :users, :path_prefix => 'my'
+  resources :users
 
   resources :events
 
   resource :user do
     resources :events
+  member do
+    get :following, :followers
   end
+end 
+  resources :relationships, :only => [:create, :destroy]
 
   resources :jobs do
     resources :events
   end
+  
+  
 
     
   get "pages/index"
@@ -24,6 +31,7 @@ CrunchIt::Application.routes.draw do
   match '/help',    :to => 'pages#help'
   match '/admin', :to => 'pages#admin'
   match '/settings',  :to => 'pages#settings'
+  
 
   
   # The priority is based upon order of creation:

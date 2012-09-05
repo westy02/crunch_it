@@ -1,0 +1,19 @@
+<%- model_class = Job.new.class -%>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:details) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @jobs.each do |job| %> 
+      <tr>
+        <td><%= link_to job.name, job_path(job)  %></td>
+        <td><%= link_to job.details, job_path(job)  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
