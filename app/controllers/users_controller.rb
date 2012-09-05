@@ -27,7 +27,7 @@ def index
     @title = "Followers"
     @user = User.find(params[:id])
     @users = @user.followers.paginate(:page => params[:page])
-    @suppliers = @user.followers.where(:role => "supplier")
+    #@suppliers = @user.followers.where(:role => "supplier")
     render 'show_follow'
   end
 

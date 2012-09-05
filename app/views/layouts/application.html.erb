@@ -59,6 +59,7 @@
     <div class="container">
       <div class="content">
         <div class="row">
+        	<% if user_signed_in? %>
            <div class="span9">
               <%= yield %>
             </div>
@@ -66,13 +67,12 @@
               <div class="well sidebar-nav">
                 <ul class="nav nav-list">
                   <li class="nav-header"></li>
-                  	 <% if user_signed_in? %>
               <h2><%= current_user.full_name %></h2>  	 
               <li><%= render :partial => 'shared/stats'  %></li>
               <% else %>
-              <li><%= link_to "Home", root_path  %></li>
-              <li><%= link_to "Contact", contact_path  %></li>
-              <li><%= link_to "Help", help_path %></li>
+              <div class="span12">
+              <%= yield %>
+            </div>
               <% end %>
                 </ul>
               </div><!--/.well -->
