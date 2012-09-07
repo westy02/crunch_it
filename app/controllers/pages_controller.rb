@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   skip_before_filter :authenticate_user!, :except => :home
-  include EventsHelper
+  include CalendarHelper
    
   def index
     if user_signed_in?
