@@ -19,7 +19,7 @@
     <% @daily_events.each do |event| %>
       <tr>
         <td><%= link_to event.name, event_path(event) %></td>
-        <td><%= link_to event.start_time.strftime("%H:%M"), event_path(event) %></td>
+        <td><%= link_to event.start_time.strftime("%I:%M %p"), event_path(event) %></td>
       </tr>
     <% end %>
   </tbody>
