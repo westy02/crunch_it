@@ -1,9 +1,11 @@
 CrunchIt::Application.routes.draw do
  
-  devise_for :users, :path_prefix => 'my'
-  resources :users
+  ActiveAdmin.routes(self)
 
-  resources :events
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  devise_for :users, :path_prefix => 'my'
+  
+  resources :lifecycles, :events, :roles, :users
 
   resource :user do
     resources :events

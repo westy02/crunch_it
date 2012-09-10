@@ -8,6 +8,9 @@ gem 'rails', '3.2.8'
 gem 'pg'
 gem 'thin'
 gem 'will_paginate'
+gem 'devise'
+gem 'cancan'
+gem 'activeadmin'
 
 
 # Gems used only for assets and not required
@@ -25,7 +28,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'devise'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -19,7 +19,16 @@
   <%= f.password_field :password_confirmation %></div>
   <br />
   <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
-  <%= f.password_field :current_password %></div>
+  <%= f.password_field :current_password %></div><br />
+ 
+    <%= f.label :user_type %><br />
+    <%= hidden_field_tag "user[role_ids][]", nil %>
+    <dl class="dl-horizontal">
+    <% for role in Role.all %>
+      <dt><%= check_box_tag "user[role_ids][]", role.id, @user.role_ids.include?(role.id), id: dom_id(role) %></dt> 
+     <dl> <%= label_tag dom_id(role), role.name %></dl>
+    <% end %>
+  </dl><br />
 
   <div><%= f.submit "Update", :class => 'btn btn-primary' %></div>
 <% end %>
