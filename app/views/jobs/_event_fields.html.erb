@@ -1,0 +1,28 @@
+	<fieldset>
+	  <div class="control-group">
+	  <%= f.label :name, "Name", :class => 'control-label' %>
+	   <div class="controls">
+	    <%= f.text_field :name, :class => 'text_field' %>
+	   </div>
+	  </div>
+	  <div class="control-group">
+    <%= f.label :start_at, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :start_at %>
+      <%= f.time_select :start_time %>
+   </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :end_at, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :end_at %>
+      <%= f.time_select :end_time %>
+    </div>
+  </div>
+	   <div class="control-group">
+      <%= f.hidden_field :_destroy %>
+	  <%= link_to "remove", '#', class: "remove_fields" %>
+  </div>
+	  
+	  
+	</fieldset>

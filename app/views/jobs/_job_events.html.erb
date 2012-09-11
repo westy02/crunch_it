@@ -1,23 +1,20 @@
 <%- model_class = Event.new.class -%>
-<div class="page-header">
-  <h2><%=t '.title', :default => model_class.model_name.human.pluralize %></h2>
-</div>
+</br>
+  <strong><%="Events for this job" %></strong>  </br>
 <table class="table table-condensed">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:start_at) %></th>
-      <th><%= model_class.human_attribute_name(:job_id) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th>Belongs to <%= model_class.human_attribute_name(:job_id) %></th>
+
     </tr>
   </thead>
   <tbody>
     <% @job.events.each do |event| %>
       <tr>
-        <td><%= link_to event.id, event_path(event) %></td>
         <td><%= link_to event.name, event_path(event) %></td>
-        <td><%= event.start_at.to_s(:list_time) %></td>
+        <td><%= link_to event.start_at.strftime("%I:%M %p"), event_path(event) %></td>
         <td><%= event.job_id %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

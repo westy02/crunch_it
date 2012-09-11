@@ -1,5 +1,5 @@
 class Job < ActiveRecord::Base
-  attr_accessible :details, :name, :events_attributes
+  attr_accessible :details, :name, :lifecycle_ids, :events_attributes
   belongs_to :user
   has_many :events
   has_many :assignments, dependent: :destroy
