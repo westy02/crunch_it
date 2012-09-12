@@ -11,7 +11,9 @@ gem 'will_paginate'
 gem 'devise'
 gem 'cancan'
 gem 'activeadmin'
-gem 'sass-rails',   '~> 3.2.3'
+gem 'countries'
+gem "geocoder"
+
 
 
 # Gems used only for assets and not required
@@ -24,6 +26,7 @@ group :assets do
   gem 'twitter-bootstrap-rails'
   gem 'uglifier', '>= 1.0.3'
   gem 'jquery-ui-rails'
+  gem 'sass-rails',   '~> 3.2.3'
   
 end
 

@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :firstname, :lastname, :role_ids
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :firstname, :lastname, :role_ids, :country, :state, :city, :latitude, :longitude, :location, :ip
   # attr_accessible :title, :body
   has_many :jobs
   has_many :events
@@ -19,7 +19,16 @@ class User < ActiveRecord::Base
                                    :class_name => "Relationship",
                                    :dependent => :destroy
   has_many :followers, :through => :reverse_relationships, :source => :follower
+  
+  geocoded_by :ip   # can also be an IP address
+  after_validation :geocode          # auto-fetch coordinates
+  
+  reverse_geocoded_by :lat, :lon
+  after_validation :reverse_geocode  # auto-fetch address
    
+  #def location
+  #[country, state, city ].compact.join(', ')
+  #end
    
   def feed
     Jobsheet.from_users_followed_by(self)
