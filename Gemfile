@@ -11,7 +11,7 @@ gem 'will_paginate'
 gem 'devise'
 gem 'cancan'
 gem 'activeadmin'
-gem 'countries'
+gem 'country_select'
 gem "geocoder"
 
 
