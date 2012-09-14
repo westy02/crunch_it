@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   geocoded_by :ip   # can also be an IP address
   after_validation :geocode          # auto-fetch coordinates
   
-  reverse_geocoded_by :lat, :lon
+  reverse_geocoded_by :latitude, :longitude
   after_validation :reverse_geocode  # auto-fetch address
    
   #def location

@@ -12,29 +12,24 @@
   <div><%= f.label :email %>
   <%= f.email_field :email %></div>
   <br />
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i>
-  <%= f.password_field :password, :autocomplete => "off" %></div>
+  <div><%= f.label :password %> 
+  <%= f.password_field :password, :autocomplete => "off" %><i>(leave blank if you don't want to change it)</i></div>
   <br />
   <div><%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation %></div>
   <br />
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
-  <%= f.password_field :current_password %></div>
-  <br />
-  <dl>
-  <%= f.label :your_location %>
-  <dd><%= request.ip %></dd>
-  <dd><%= request.location.city %></dd>
-  <dd><%= request.location.state %></dd>
-  <dd><%= request.location.country %></dd>
-</dl>
-  <p>Incorrect location? Change below</p>
-  <div><%= f.label :city %> 
-  <%= f.text_field :city %></div>
-  <div><%= f.label :state %> 
-  <%= f.text_field :state %></div>
-  <div><%= f.label :country %> 
-  <%= f.text_field :country %></div>
+  <blockquote><h4>Your location</h4></blockquote>
+   <ul class="unstyled">
+  <li><%= request.ip %></li>
+  <li><%= request.location.city %></li>
+  <li><%= request.location.state %></li>
+  <li><%= request.location.country %></li>
+  </ul>
+  <h5>Incorrect location? Change below</h5>
+ 
+  <div><%= f.text_field :city %> <i>City</i></div>
+  <div><%= f.text_field :state %> <i>State (if any?)</i></div>
+  <div><%= f.text_field :country %> <i>Country</i></div>
   <br />
  
     <%= f.label :user_type %><br />
@@ -45,6 +40,10 @@
      <dl> <%= label_tag dom_id(role), role.name %></dl>
     <% end %>
   </dl><br />
+    
+  <div><%= f.label :current_password %> 
+  <%= f.password_field :current_password %><i>(we need your current password to confirm your changes)</i></div>
+  <br />
 
   <div><%= f.submit "Update", :class => 'btn btn-primary' %></div>
 <% end %>
