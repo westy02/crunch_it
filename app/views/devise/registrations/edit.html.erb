@@ -19,27 +19,33 @@
   <%= f.password_field :password_confirmation %></div>
   <br />
   <blockquote><h4>Your location</h4></blockquote>
-   <ul class="unstyled">
-  <li><%= request.ip %></li>
-  <li><%= request.location.city %></li>
-  <li><%= request.location.state %></li>
-  <li><%= request.location.country %></li>
-  </ul>
-  <h5>Incorrect location? Change below</h5>
- 
+  <div>
   <div><%= f.text_field :city %> <i>City</i></div>
   <div><%= f.text_field :state %> <i>State (if any?)</i></div>
   <div><%= f.text_field :country %> <i>Country</i></div>
   <br />
- 
-    <%= f.label :user_type %><br />
+   <i>Your example location</i>
+   <dl class="dl-horizontal">
+   <dt>City</dt>
+  <dd><%= request.location.city %></dd>
+   <dt>State</dt>
+  <dd><%= request.location.state %></dd>
+   <dt>Country</dt>
+  <dd><%= request.location.country %></dd>
+  </dl> 
+  </div>
+  <br />
+  
+  <div>
+    <blockquote><h4>Your user type(s)</h4></blockquote>
     <%= hidden_field_tag "user[role_ids][]", nil %>
     <dl class="dl-horizontal">
     <% for role in Role.all %>
       <dt><%= check_box_tag "user[role_ids][]", role.id, @user.role_ids.include?(role.id), id: dom_id(role) %></dt> 
      <dl> <%= label_tag dom_id(role), role.name %></dl>
     <% end %>
-  </dl><br />
+  </dl>
+  </div><br />
     
   <div><%= f.label :current_password %> 
   <%= f.password_field :current_password %><i>(we need your current password to confirm your changes)</i></div>
