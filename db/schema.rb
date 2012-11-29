@@ -47,12 +47,12 @@ ActiveRecord::Schema.define(:version => 20120919083701) do
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
   create_table "assignments", :force => true do |t|
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
     t.integer  "user_id"
     t.integer  "role_id"
     t.integer  "lifecycle_id"
     t.integer  "job_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "companies", :force => true do |t|
@@ -82,9 +82,9 @@ ActiveRecord::Schema.define(:version => 20120919083701) do
   create_table "jobs", :force => true do |t|
     t.string   "name"
     t.text     "details"
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.integer  "user_id"
   end
 
   create_table "lifecycles", :force => true do |t|
@@ -116,6 +116,8 @@ ActiveRecord::Schema.define(:version => 20120919083701) do
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "firstname"
+    t.string   "lastname"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -126,8 +128,6 @@ ActiveRecord::Schema.define(:version => 20120919083701) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
-    t.string   "firstname"
-    t.string   "lastname"
     t.float    "latitude"
     t.float    "longitude"
     t.string   "country"
