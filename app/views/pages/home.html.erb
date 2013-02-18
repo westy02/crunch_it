@@ -1,10 +1,19 @@
 <% if signed_in? %>
+<div class="row well ">
+
+			<div class="span3">
+		<h3><%= current_user.full_name %></h3><ul><%= Date.today.strftime("%A %d %B %Y") %> </ul> 
+      	      <ul><%= Time.now.strftime("%I:%M %p")%></ul>  
+      	      </div>
+      	      <div class="span8 pull-right">
+      	      <h3 class="pull-right">Messages</h3> 
+      	      </div>	 
+</div> 
 <div class="row">
-  <div class="span9">
-      <h3> <big>My Diary</big> <ul><%= Date.today.strftime("%A %d %B %Y") %> </ul> 
-      	<ul><%= Time.now.strftime("%I:%M %p")%></ul>
+	<div class="span6 well ">
+      <h3> <big>My Diary</big> 
       	</h3>
-     	 <ul class="nav nav-tabs">
+     	 <ul class="nav nav-pills">
   <li class="active"><a href="#diary" data-toggle="tab">Diary</a></li>
   <li><a href="#calendar" data-toggle="tab">Calendar</a></li>
 </ul>
@@ -26,24 +35,45 @@
             :class => 'btn btn-inverse' %>
     <%= link_to "New Event", new_event_path, :class => 'btn btn-info' %>     	
    	<%= link_to "New Job", new_job_path, :class => 'btn btn-success' %>
-      	
+   
   	</div>
   </div>	
  </div>
 
+<div class="span5 well pull-right">
+	<h3> <big>My Jobs</big> 
+      	</h3>
 
-
-<div class="span3">
-              <div class="well sidebar-nav">
-                <ul class="nav nav-list">
-                  <li class="nav-header"></li>
-              <h2><%= current_user.full_name %></h2>  	 
-              <li><%= render :partial => 'shared/stats'  %></li>
- </div>
-</div>              
+<div class="accordion" id="accordion2">
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+        Collapsible Group Item #1
+      </a>
+    </div>
+    <div id="collapseOne" class="accordion-body collapse in">
+      <div class="accordion-inner">
+        Anim pariatur cliche...
+      </div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+        Collapsible Group Item #2
+      </a>
+    </div>
+    <div id="collapseTwo" class="accordion-body collapse">
+      <div class="accordion-inner">
+        Anim pariatur cliche...
+      </div>
+    </div>
+  </div>
 </div>
+</div>
+</br>
 
-    
+
 <% else %>
   <%= render root_path %>
 
