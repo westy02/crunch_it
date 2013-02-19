@@ -1,6 +1,7 @@
 class Company < ActiveRecord::Base
   attr_accessible :address, :email, :ip, :latitude, :longitude, :name, :website
-  has_many :users
+  belongs_to :user
+  #has_many :users
   
   geocoded_by :address   # can also be an IP address
   after_validation :geocode          # auto-fetch coordinates

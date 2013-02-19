@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
                                    :class_name => "Relationship",
                                    :dependent => :destroy
   has_many :followers, :through => :reverse_relationships, :source => :follower
+  has_many :companies
   
   geocoded_by :ip   # can also be an IP address
   after_validation :geocode          # auto-fetch coordinates
